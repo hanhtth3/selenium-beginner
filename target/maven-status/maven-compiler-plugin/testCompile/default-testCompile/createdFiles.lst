@@ -1,0 +1,6 @@
+com\baymax\sky\tasks\Search.class
+com\baymax\sky\features\search\ShouldSeeTheSumTwoNumberIsCorrectTest.class
+com\baymax\sky\ui\GoogleSearchPage.class
+com\baymax\sky\tasks\OpenTheApplication.class
+com\baymax\sky\ui\SearchBox.class
+com\baymax\sky\features\search\SearchByKeywordStory.class

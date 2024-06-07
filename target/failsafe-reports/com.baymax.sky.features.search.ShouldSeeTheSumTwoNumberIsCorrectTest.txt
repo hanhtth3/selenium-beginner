@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.baymax.sky.features.search.ShouldSeeTheSumTwoNumberIsCorrectTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 25.048 s - in com.baymax.sky.features.search.ShouldSeeTheSumTwoNumberIsCorrectTest
