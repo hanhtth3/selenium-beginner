@@ -57,7 +57,13 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
     @Before
     public void HanhCanBrowseTheWeb() {
+       // Cứ MỖI LẦN thực hiện một @Test thì đoạn code này sẽ chạy trước
+        /*
+        * Bài Tập.
+        * Tìm kiếm trong kịch bản này những đoạn  nào dùng chung thì bỏ vào phần Before
+        * */
         hanh.can(BrowseTheWeb.with(herBrowser));
+
     }
 
     @WithTag ("TC001")
