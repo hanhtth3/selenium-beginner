@@ -115,9 +115,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
                 Open.url(URL),
                 Click.on(INPUT_FORMS),
                 Click.on(SIMPLE_FORM_DEMO),
-               // Click.on(TOTAL_BUTTON),
                 Enter.theValue("Hello").into(SINGLE_FIELD),
-                //Ensure.that(TOTAL).value().isEqualTo("5")
                 Click.on(SHOW_INPUT),
                 Ensure.that(SHOW).text().isEqualTo("Hello")
         );
