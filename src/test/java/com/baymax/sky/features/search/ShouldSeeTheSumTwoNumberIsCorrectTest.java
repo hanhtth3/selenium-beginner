@@ -9,6 +9,7 @@ import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.targets.Target;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -49,6 +50,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public static final  Target SHOW =
             Target.the("Display")
                     .located(By.id("display"));
+    public static final String URL = "https://demo.seleniumeasy.com/";
 
     Actor hanh = Actor.named("Hanh");
 
@@ -57,12 +59,20 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
     @Before
     public void HanhCanBrowseTheWeb() {
-       // Cứ MỖI LẦN thực hiện một @Test thì đoạn code này sẽ chạy trước
+        // Cứ MỖI LẦN thực hiện một @Test thì đoạn code này sẽ chạy trước
         /*
-        * Bài Tập.
-        * Tìm kiếm trong kịch bản này những đoạn  nào dùng chung thì bỏ vào phần Before
-        * */
+         * Bài Tập.
+         * Tìm kiếm trong kịch bản này những đoạn  nào dùng chung thì bỏ vào phần Before
+         * */
         hanh.can(BrowseTheWeb.with(herBrowser));
+    }
+        public void open_the_web () {
+
+            hanh.attemptsTo(
+                    Open.url(URL),
+                    Click.on(INPUT_FORMS),
+                    Click.on(SIMPLE_FORM_DEMO)
+            );
 
     }
 
@@ -71,7 +81,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void sum_when_input_data() {
 
         hanh.attemptsTo(
-                Open.url("https://demo.seleniumeasy.com/"),
+                Open.url(URL),
                 Click.on(INPUT_FORMS),
                 Click.on(SIMPLE_FORM_DEMO),
                 Enter.theValue("2").into(NUM_A),
@@ -88,7 +98,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void sum_when_no_input_data() {
 
         hanh.attemptsTo(
-                Open.url("https://demo.seleniumeasy.com/"),
+                Open.url(URL),
                 Click.on(INPUT_FORMS),
                 Click.on(SIMPLE_FORM_DEMO),
                 Click.on(TOTAL_BUTTON),
@@ -96,17 +106,16 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
                 Ensure.that(TOTAL).text().isEqualTo("NaN")
         );
 
-
     }
     @WithTag ("TC003")
     @Test
-    public void check_when_input_data() {
+        public void check_when_input_data() {
 
         hanh.attemptsTo(
-                Open.url("https://demo.seleniumeasy.com/"),
+                Open.url(URL),
                 Click.on(INPUT_FORMS),
                 Click.on(SIMPLE_FORM_DEMO),
-                Click.on(TOTAL_BUTTON),
+               // Click.on(TOTAL_BUTTON),
                 Enter.theValue("Hello").into(SINGLE_FIELD),
                 //Ensure.that(TOTAL).value().isEqualTo("5")
                 Click.on(SHOW_INPUT),
