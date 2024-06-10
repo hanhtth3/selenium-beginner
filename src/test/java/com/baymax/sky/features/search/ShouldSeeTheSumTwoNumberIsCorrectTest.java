@@ -22,7 +22,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
     public static final Target INPUT_FORMS =
             Target.the("menu Input Forms")
-                .located(By.linkText("Input Forms"));
+                    .located(By.linkText("Input Forms"));
     public static final Target SIMPLE_FORM_DEMO =
             Target.the("menu Simple Form Demo")
                     .located(By.linkText("Simple Form Demo"));
@@ -34,20 +34,20 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
                     .located(By.id("value2"));
     public static final Target TOTAL_BUTTON =
             Target.the("button Get total")
-            .locatedBy("//button[@onclick='return total()']");
-    public static final  Target TOTAL =
+                    .locatedBy("//button[@onclick='return total()']");
+    public static final Target TOTAL =
             Target.the("Total")
-            .located(By.id("displayvalue"));
+                    .located(By.id("displayvalue"));
 
-    public static final  Target SINGLE_FIELD =
+    public static final Target SINGLE_FIELD =
             Target.the("Single Field")
                     .located(By.id("user-message"));
 
-    public static final  Target SHOW_INPUT =
+    public static final Target SHOW_INPUT =
             Target.the("Show messange")
                     .locatedBy("//button[@onclick='showInput();']");
 
-    public static final  Target SHOW =
+    public static final Target SHOW =
             Target.the("Display")
                     .located(By.id("display"));
     public static final String URL = "https://demo.seleniumeasy.com/";
@@ -65,25 +65,19 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
          * Tìm kiếm trong kịch bản này những đoạn  nào dùng chung thì bỏ vào phần Before
          * */
         hanh.can(BrowseTheWeb.with(herBrowser));
-    }
-        public void open_the_web () {
-
-            hanh.attemptsTo(
-                    Open.url(URL),
-                    Click.on(INPUT_FORMS),
-                    Click.on(SIMPLE_FORM_DEMO)
-            );
-
+        hanh.attemptsTo(
+                Open.url(URL),
+                Click.on(INPUT_FORMS),
+                Click.on(SIMPLE_FORM_DEMO)
+        );
     }
 
-    @WithTag ("TC001")
+
+    @WithTag("TC001")
     @Test
     public void sum_when_input_data() {
 
         hanh.attemptsTo(
-                Open.url(URL),
-                Click.on(INPUT_FORMS),
-                Click.on(SIMPLE_FORM_DEMO),
                 Enter.theValue("2").into(NUM_A),
                 Enter.theValue("3").into(NUM_B),
                 Click.on(TOTAL_BUTTON),
@@ -93,28 +87,23 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
 
     }
-    @WithTag ("TC002")
+
+    @WithTag("TC002")
     @Test
     public void sum_when_no_input_data() {
 
         hanh.attemptsTo(
-                Open.url(URL),
-                Click.on(INPUT_FORMS),
-                Click.on(SIMPLE_FORM_DEMO),
                 Click.on(TOTAL_BUTTON),
-                //Ensure.that(TOTAL).value().isEqualTo("5")
                 Ensure.that(TOTAL).text().isEqualTo("NaN")
         );
 
     }
-    @WithTag ("TC003")
+
+    @WithTag("TC003")
     @Test
-        public void check_when_input_data() {
+    public void check_when_input_data() {
 
         hanh.attemptsTo(
-                Open.url(URL),
-                Click.on(INPUT_FORMS),
-                Click.on(SIMPLE_FORM_DEMO),
                 Enter.theValue("Hello").into(SINGLE_FIELD),
                 Click.on(SHOW_INPUT),
                 Ensure.that(SHOW).text().isEqualTo("Hello")
