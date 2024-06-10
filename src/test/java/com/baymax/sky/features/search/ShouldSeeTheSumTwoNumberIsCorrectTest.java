@@ -20,7 +20,7 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 @RunWith(SerenityRunner.class)
 public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
-    public static final Target INPUT_FORMS =
+   public static final Target INPUT_FORMS =
             Target.the("menu Input Forms")
                     .located(By.linkText("Input Forms"));
     public static final Target SIMPLE_FORM_DEMO =
