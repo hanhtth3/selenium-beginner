@@ -14,43 +14,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import net.serenitybdd.screenplay.ensure.Ensure;
+import com.baymax.sky.ui.Elements;
 
 @RunWith(SerenityRunner.class)
 public class ShouldSeeTheSumTwoNumberIsCorrectTest {
-
-   public static final Target INPUT_FORMS =
-            Target.the("menu Input Forms")
-                    .located(By.linkText("Input Forms"));
-    public static final Target SIMPLE_FORM_DEMO =
-            Target.the("menu Simple Form Demo")
-                    .located(By.linkText("Simple Form Demo"));
-    public static final Target NUM_A =
-            Target.the("Number a")
-                    .located(By.id("value1"));
-    public static final Target NUM_B =
-            Target.the("Number b")
-                    .located(By.id("value2"));
-    public static final Target TOTAL_BUTTON =
-            Target.the("button Get total")
-                    .locatedBy("//button[@onclick='return total()']");
-    public static final Target TOTAL =
-            Target.the("Total")
-                    .located(By.id("displayvalue"));
-
-    public static final Target SINGLE_FIELD =
-            Target.the("Single Field")
-                    .located(By.id("user-message"));
-
-    public static final Target SHOW_INPUT =
-            Target.the("Show messange")
-                    .locatedBy("//button[@onclick='showInput();']");
-
-    public static final Target SHOW =
-            Target.the("Display")
-                    .located(By.id("display"));
-    public static final String URL = "https://demo.seleniumeasy.com/";
 
     Actor hanh = Actor.named("Hanh");
 
@@ -66,9 +34,9 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
          * */
         hanh.can(BrowseTheWeb.with(herBrowser));
         hanh.attemptsTo(
-                Open.url(URL),
-                Click.on(INPUT_FORMS),
-                Click.on(SIMPLE_FORM_DEMO)
+                Open.url(Elements.URL),
+                Click.on(Elements.INPUT_FORMS),
+                Click.on(Elements.SIMPLE_FORM_DEMO)
         );
     }
 
@@ -78,11 +46,11 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void sum_when_input_data() {
 
         hanh.attemptsTo(
-                Enter.theValue("2").into(NUM_A),
-                Enter.theValue("3").into(NUM_B),
-                Click.on(TOTAL_BUTTON),
+                Enter.theValue("2").into(Elements.NUM_A),
+                Enter.theValue("3").into(Elements.NUM_B),
+                Click.on(Elements.TOTAL_BUTTON),
                 //Ensure.that(TOTAL).value().isEqualTo("5")
-                Ensure.that(TOTAL).text().isEqualTo("5")
+                Ensure.that(Elements.TOTAL).text().isEqualTo("5")
         );
 
 
@@ -93,8 +61,8 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void sum_when_no_input_data() {
 
         hanh.attemptsTo(
-                Click.on(TOTAL_BUTTON),
-                Ensure.that(TOTAL).text().isEqualTo("NaN")
+                Click.on(Elements.TOTAL_BUTTON),
+                Ensure.that(Elements.TOTAL).text().isEqualTo("NaN")
         );
 
     }
@@ -104,9 +72,9 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void check_when_input_data() {
 
         hanh.attemptsTo(
-                Enter.theValue("Hello").into(SINGLE_FIELD),
-                Click.on(SHOW_INPUT),
-                Ensure.that(SHOW).text().isEqualTo("Hello")
+                Enter.theValue("Hello").into(Elements.SINGLE_FIELD),
+                Click.on(Elements.SHOW_INPUT),
+                Ensure.that(Elements.SHOW).text().isEqualTo("Hello")
         );
 
 
