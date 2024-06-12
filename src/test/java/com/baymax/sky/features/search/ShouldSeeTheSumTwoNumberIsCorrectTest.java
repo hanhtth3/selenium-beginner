@@ -1,6 +1,8 @@
 package com.baymax.sky.features.search;
 
+import com.baymax.sky.tasks.OpenMenuSimpleFormDemo;
 import net.serenitybdd.annotations.Managed;
+import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.annotations.WithTag;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
@@ -19,6 +21,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import com.baymax.sky.ui.Elements;
+import com.baymax.sky.tasks.OpenMenuSimpleFormDemo;
 
 @RunWith(SerenityRunner.class)
 public class ShouldSeeTheSumTwoNumberIsCorrectTest {
@@ -27,6 +30,9 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
+
+    @Steps
+    OpenMenuSimpleFormDemo OpenMenuSimpleFormDemo;
 
     @Before
     public void HanhCanBrowseTheWeb() {
@@ -38,22 +44,12 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
         hanh.can(BrowseTheWeb.with(herBrowser));
     }
 
-    @NotNull
-    private static Performable Opentheweb() {
-        return Task.where("Open the web", actor -> actor.attemptsTo(
-                Open.url(Elements.URL),
-                Click.on(Elements.INPUT_FORMS),
-                Click.on(Elements.SIMPLE_FORM_DEMO)
-        ));
-    }
-
-
     @WithTag("TC001")
     @Test
     public void sum_when_input_data() {
 
         hanh.attemptsTo(
-                Opentheweb(),
+                OpenMenuSimpleFormDemo,
                 Enter.theValue("2").into(Elements.NUM_A),
                 Enter.theValue("3").into(Elements.NUM_B),
                 Click.on(Elements.TOTAL_BUTTON),
@@ -69,7 +65,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void sum_when_no_input_data() {
 
         hanh.attemptsTo(
-                Opentheweb(),
+                OpenMenuSimpleFormDemo,
                 Click.on(Elements.TOTAL_BUTTON),
                 Ensure.that(Elements.TOTAL).text().isEqualTo("NaN")
         );
@@ -81,7 +77,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void check_when_input_data() {
 
         hanh.attemptsTo(
-                Opentheweb(),
+                OpenMenuSimpleFormDemo,
                 Enter.theValue("Hello").into(Elements.SINGLE_FIELD),
                 Click.on(Elements.SHOW_INPUT),
                 Ensure.that(Elements.SHOW).text().isEqualTo("Hello")
