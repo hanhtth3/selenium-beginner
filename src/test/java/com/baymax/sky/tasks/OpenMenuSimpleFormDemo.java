@@ -12,8 +12,6 @@ public class OpenMenuSimpleFormDemo implements Task {
     @Step("Open the simple form demo")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-    //private static Performable OpenMenuSimpleFormDemo() {
-        //return Task.where("Open the simple form demo", actor -> actor.attemptsTo(
                 Open.url(Elements.URL),
                 Click.on(Elements.INPUT_FORMS),
                 Click.on(Elements.SIMPLE_FORM_DEMO)

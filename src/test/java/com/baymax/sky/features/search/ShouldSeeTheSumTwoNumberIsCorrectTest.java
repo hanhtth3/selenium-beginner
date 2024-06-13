@@ -1,27 +1,20 @@
 package com.baymax.sky.features.search;
 
+import com.baymax.sky.tasks.NavigateTo;
 import com.baymax.sky.tasks.OpenMenuSimpleFormDemo;
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.annotations.WithTag;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Performable;
-import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.targets.Target;
-import org.jetbrains.annotations.NotNull;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import net.serenitybdd.screenplay.ensure.Ensure;
 import com.baymax.sky.ui.Elements;
-import com.baymax.sky.tasks.OpenMenuSimpleFormDemo;
 
 @RunWith(SerenityRunner.class)
 public class ShouldSeeTheSumTwoNumberIsCorrectTest {
@@ -49,11 +42,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void sum_when_input_data() {
 
         hanh.attemptsTo(
-                OpenMenuSimpleFormDemo,
-                Enter.theValue("2").into(Elements.NUM_A),
-                Enter.theValue("3").into(Elements.NUM_B),
-                Click.on(Elements.TOTAL_BUTTON),
-                //Ensure.that(TOTAL).value().isEqualTo("5")
+                NavigateTo.Calculator(),
                 Ensure.that(Elements.TOTAL).text().isEqualTo("5")
         );
 
