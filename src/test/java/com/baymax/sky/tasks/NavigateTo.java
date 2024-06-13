@@ -10,14 +10,11 @@ import org.jetbrains.annotations.NotNull;
 
 public class NavigateTo {
     @NotNull
-    public static Performable Calculator() {
+    public static Performable theCalculator() {
         return Task.where("{0} Calculator", actor -> actor.attemptsTo(
                 Open.url(Elements.URL),
                 Click.on(Elements.INPUT_FORMS),
-                Click.on(Elements.SIMPLE_FORM_DEMO),
-                Enter.theValue("2").into(Elements.NUM_A),
-                Enter.theValue("3").into(Elements.NUM_B),
-                Click.on(Elements.TOTAL_BUTTON)
+                Click.on(Elements.SIMPLE_FORM_DEMO)
 
         ));
     }

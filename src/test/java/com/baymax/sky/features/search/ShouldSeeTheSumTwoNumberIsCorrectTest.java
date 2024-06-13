@@ -42,7 +42,10 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void sum_when_input_data() {
 
         hanh.attemptsTo(
-                NavigateTo.Calculator(),
+                NavigateTo.theCalculator(),
+                Enter.theValue("2").into(Elements.NUM_A),
+                Enter.theValue("3").into(Elements.NUM_B),
+                Click.on(Elements.TOTAL_BUTTON),
                 Ensure.that(Elements.TOTAL).text().isEqualTo("5")
         );
 
@@ -54,7 +57,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void sum_when_no_input_data() {
 
         hanh.attemptsTo(
-                OpenMenuSimpleFormDemo,
+                NavigateTo.theCalculator(),
                 Click.on(Elements.TOTAL_BUTTON),
                 Ensure.that(Elements.TOTAL).text().isEqualTo("NaN")
         );
@@ -66,7 +69,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     public void check_when_input_data() {
 
         hanh.attemptsTo(
-                OpenMenuSimpleFormDemo,
+                NavigateTo.theCalculator(),
                 Enter.theValue("Hello").into(Elements.SINGLE_FIELD),
                 Click.on(Elements.SHOW_INPUT),
                 Ensure.that(Elements.SHOW).text().isEqualTo("Hello")
