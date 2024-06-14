@@ -1,22 +1,21 @@
 package com.baymax.sky.features.search;
 
-import com.baymax.sky.tasks.Calculate;
+import com.baymax.sky.tasks.EnterDataTo;
 import com.baymax.sky.tasks.NavigateTo;
+import com.baymax.sky.ui.Elements;
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.WithTag;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import com.baymax.sky.ui.Elements;
 
 @RunWith(SerenityRunner.class)
-public class ShouldSeeTheSumTwoNumberIsCorrectTest {
+public class ShouldSeeTheMessageIsRepeatedTest {
 
     Actor hanh = Actor.named("Hanh");
 
@@ -33,27 +32,16 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
         hanh.can(BrowseTheWeb.with(herBrowser));
     }
 
-    @WithTag("TC001")
+    @WithTag("TC003")
     @Test
-    public void sum_when_input_data() {
+    public void check_when_input_data() {
 
         hanh.attemptsTo(
                 NavigateTo.theCalculator(),
-                Calculate.theSumOf("7", "4"),
-                Ensure.that(Elements.TOTAL).text().isEqualTo("11")
+                EnterDataTo.SingleFiled("Hello"),
+                Ensure.that(Elements.SHOW).text().isEqualTo("Hello")
         );
 
-    }
-
-    @WithTag("TC002")
-    @Test
-    public void sum_when_no_input_data() {
-
-        hanh.attemptsTo(
-                NavigateTo.theCalculator(),
-                Calculate.theSumOf("",""),
-                Ensure.that(Elements.TOTAL).text().isEqualTo("NaN")
-        );
 
     }
 
