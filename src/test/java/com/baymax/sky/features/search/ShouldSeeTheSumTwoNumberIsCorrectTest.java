@@ -39,8 +39,8 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
         hanh.attemptsTo(
                 NavigateTo.theCalculator(),
-                Calculate.theSumOf23(),
-                Ensure.that(Elements.TOTAL).text().isEqualTo("5")
+                Calculate.theSumOf("7", "4"),
+                Ensure.that(Elements.TOTAL).text().isEqualTo("11")
         );
 
     }
