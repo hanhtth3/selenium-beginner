@@ -1,6 +1,6 @@
 package com.baymax.sky.features.search;
 
-import com.baymax.sky.tasks.Calculator;
+import com.baymax.sky.tasks.Calculate;
 import com.baymax.sky.tasks.NavigateTo;
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.WithTag;
@@ -39,7 +39,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
         hanh.attemptsTo(
                 NavigateTo.theCalculator(),
-                Calculator.inputValue(),
+                Calculate.theSumOf23(),
                 Ensure.that(Elements.TOTAL).text().isEqualTo("5")
         );
 
