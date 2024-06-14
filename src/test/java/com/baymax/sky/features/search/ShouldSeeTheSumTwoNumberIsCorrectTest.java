@@ -51,7 +51,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
         hanh.attemptsTo(
                 NavigateTo.theCalculator(),
-                Click.on(Elements.TOTAL_BUTTON),
+                Calculate.theSumOf("",""),
                 Ensure.that(Elements.TOTAL).text().isEqualTo("NaN")
         );
 
