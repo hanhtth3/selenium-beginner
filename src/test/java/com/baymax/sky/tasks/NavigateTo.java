@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public class NavigateTo {
     @NotNull
     public static Performable theCalculator() {
-        return Task.where("{0} Calculator", actor -> actor.attemptsTo(
+        return Task.where("{0} com.baymax.sky.tasks.com.baymax.sky.tasks.Calculator", actor -> actor.attemptsTo(
                 Open.url(Elements.URL),
                 Click.on(Elements.INPUT_FORMS),
                 Click.on(Elements.SIMPLE_FORM_DEMO)

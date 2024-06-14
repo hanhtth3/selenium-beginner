@@ -1,9 +1,8 @@
 package com.baymax.sky.features.search;
 
+import com.baymax.sky.tasks.Calculator;
 import com.baymax.sky.tasks.NavigateTo;
-import com.baymax.sky.tasks.OpenMenuSimpleFormDemo;
 import net.serenitybdd.annotations.Managed;
-import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.annotations.WithTag;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
@@ -24,9 +23,6 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
     @Managed(uniqueSession = true)
     public WebDriver herBrowser;
 
-    @Steps
-    OpenMenuSimpleFormDemo OpenMenuSimpleFormDemo;
-
     @Before
     public void HanhCanBrowseTheWeb() {
         // Cứ MỖI LẦN thực hiện một @Test thì đoạn code này sẽ chạy trước
@@ -43,12 +39,9 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
         hanh.attemptsTo(
                 NavigateTo.theCalculator(),
-                Enter.theValue("2").into(Elements.NUM_A),
-                Enter.theValue("3").into(Elements.NUM_B),
-                Click.on(Elements.TOTAL_BUTTON),
+                Calculator.inputValue(),
                 Ensure.that(Elements.TOTAL).text().isEqualTo("5")
         );
-
 
     }
 
