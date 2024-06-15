@@ -4,3 +4,4 @@ numbera, numberb, total
 0, 10, 10
 11, 25, 36
  , , NaN
+ 2, 5, 4
