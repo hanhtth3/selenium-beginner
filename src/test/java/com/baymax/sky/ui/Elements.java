@@ -32,7 +32,7 @@ public class Elements {
             Target.the("Show messange")
                     .locatedBy("//button[@onclick='showInput();']");
 
-    public static final Target SHOW =
+    public static final Target ECHO_MESSANGE =
             Target.the("Display")
                     .located(By.id("display"));
     public static final String URL = "https://demo.seleniumeasy.com/";

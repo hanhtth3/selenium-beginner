@@ -1,6 +1,6 @@
 package com.baymax.sky.features.search;
 
-import com.baymax.sky.tasks.EnterDataTo;
+import com.baymax.sky.tasks.Send;
 import com.baymax.sky.tasks.NavigateTo;
 import com.baymax.sky.ui.Elements;
 import net.serenitybdd.annotations.Managed;
@@ -34,12 +34,12 @@ public class ShouldSeeTheMessageIsRepeatedTest {
 
     @WithTag("TC003")
     @Test
-    public void check_when_input_data() {
+    public void should_see_the_messange_display_when_input_vailid_data() {
 
         hanh.attemptsTo(
                 NavigateTo.theCalculator(),
-                EnterDataTo.SingleFiled("Hello"),
-                Ensure.that(Elements.SHOW).text().isEqualTo("Hello")
+                Send.aMessage("Hello"),
+                Ensure.that(Elements.ECHO_MESSANGE).text().isEqualTo("Hello")
         );
 
 

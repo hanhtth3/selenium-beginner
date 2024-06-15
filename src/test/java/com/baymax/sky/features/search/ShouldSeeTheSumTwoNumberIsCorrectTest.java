@@ -35,7 +35,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
     @WithTag("TC001")
     @Test
-    public void sum_when_input_data() {
+    public void calculate_the_sum_of_two_numbers_when_input_valid_data() {
 
         hanh.attemptsTo(
                 NavigateTo.theCalculator(),
@@ -47,7 +47,7 @@ public class ShouldSeeTheSumTwoNumberIsCorrectTest {
 
     @WithTag("TC002")
     @Test
-    public void sum_when_no_input_data() {
+    public void calculate_the_sum_of_two_numbers_when_without_input_data() {
 
         hanh.attemptsTo(
                 NavigateTo.theCalculator(),
