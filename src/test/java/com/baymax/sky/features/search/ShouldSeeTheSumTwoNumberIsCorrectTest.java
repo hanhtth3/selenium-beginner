@@ -16,22 +16,7 @@ import org.openqa.selenium.WebDriver;
 import com.baymax.sky.ui.Elements;
 
 @RunWith(SerenityRunner.class)
-public class ShouldSeeTheSumTwoNumberIsCorrectTest {
-
-    Actor hanh = Actor.named("Hanh");
-
-    @Managed(uniqueSession = true)
-    public WebDriver herBrowser;
-
-    @Before
-    public void HanhCanBrowseTheWeb() {
-        // Cứ MỖI LẦN thực hiện một @Test thì đoạn code này sẽ chạy trước
-        /*
-         * Bài Tập.
-         * Tìm kiếm trong kịch bản này những đoạn  nào dùng chung thì bỏ vào phần Before
-         * */
-        hanh.can(BrowseTheWeb.with(herBrowser));
-    }
+public class ShouldSeeTheSumTwoNumberIsCorrectTest extends PageObject{
 
     @WithTag("TC001")
     @Test
