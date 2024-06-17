@@ -2,21 +2,15 @@ package com.baymax.sky.features.search;
 
 import com.baymax.sky.tasks.Calculate;
 import com.baymax.sky.tasks.NavigateTo;
-import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.WithTag;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import com.baymax.sky.ui.Elements;
 
 @RunWith(SerenityRunner.class)
-public class ShouldSeeTheSumTwoNumberIsCorrectTest extends PageObject{
+public class ShouldSeeTheSumTwoNumberIsCorrectTest extends WebHook {
 
     @WithTag("TC001")
     @Test
